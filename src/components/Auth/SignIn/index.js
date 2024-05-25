@@ -2,6 +2,7 @@ import React from 'react'
 import './SignIn.scss'
 import instaText from '../../../images/insta-text.png'
 import facebookIcon from '../../../images/facebook.icon.png'
+import { Link } from 'react-router-dom'
 
 export const SignIn = () => {
   return (
@@ -26,6 +27,10 @@ export const SignIn = () => {
                 <span>Войти через Facebook</span>
             </div>
             <span className="signIn__forgot-pass">Забыли пароль?</span>
+
+            <div className="auth__signUp-link">
+                      <span>Don't have an account yet?<Link to='/register'>register</Link></span>
+            </div>
         </div>
     </>
   )

@@ -1,5 +1,5 @@
 .signUp {
-    height: 600px;
+    height: 700px;
     width: 300px;
     padding: 30px;
     border: .5px solid rgb(200, 200, 200);
@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: space-between;
     font-family: system-ui;
+    margin: 100px auto;
 
    &__logo {
     width: 60%;

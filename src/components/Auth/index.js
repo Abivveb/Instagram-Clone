@@ -24,15 +24,10 @@ export const Auth = () => {
               { showRegistered == false? 
                 <>
                   <SignIn/>
-                  <div className="auth__signUp-link">
-                      <span>Don't have an account yet?<a href="">register</a></span>
-                  </div>
                 </>:
                 <>
                   <SignUp/>
-                  <div className="auth__signIn-link">
-                      <span>Have an account?<a href="">enter</a></span>
-                  </div>
+                  
                 </>
               }
                 <div className="auth__installApps">
