@@ -40,13 +40,14 @@ export const SignUp = () => {
 
         <div className="text">
             <p>Люди, которые пользуются нашим сервисом, могли загрузить вашу контактную информацию в Instagram. Подробнее</p>
+            <br></br>
             <p>Регистрируясь, вы принимаете наши Условия, Политику конфиденциальности и Политику в отношении файлов cookie.</p>
         </div>
 
         <button onClick={registerUser}>Регистрация</button>
 
         <div className="auth__signIn-link">
-                      <span>Have an account?<Link to='/login'>enter</Link></span>
+          <span>Have an account?<Link to='/login'>enter</Link></span>
         </div>
 
     </div>
