@@ -10,8 +10,10 @@ import notification from '../../../images/heart.png'
 import create from '../../../images/create.png'
 import defaultAva from '../../../images/user.png'
 import './Sidebar.scss'
+import { auth } from '../../../config'
+import { useNavigate } from 'react-router-dom'
 
-const sideBarItems= [
+const sideBarItems = [
     {id: 1, title: 'Главная', url: homeIcon},
     {id: 2, title: 'Поисковый запрос', url: search},
     {id: 3, title: 'Интересное', url: compass},
@@ -22,11 +24,30 @@ const sideBarItems= [
     {id: 8, title: 'Профиль', url: defaultAva},
 ]
 
+const settingsItems = [
+    {id: 1, title: 'Настройки'},
+    {id: 2, title: 'Ваши действия'},
+    {id: 3, title: 'Сохраненное'},
+    {id: 4, title: 'Переключить режим'},
+    {id: 5, title: 'Сообщение о проблеме'},
+    {id: 6, title: 'Switch off between accounts'},
+    {id: 7, title: 'Sign Out'},
+]
+
 
 
 export const SideBar = () => {
-    const [selectedItem, setSelectedItem] = React.useState(null)
-    console.log(selectedItem)
+
+    const [showSettings, setShowSettings] = React.useState(false)
+    const navigate = useNavigate()
+    
+    const leaveSystem = (e) => {
+        if(e === 'Sign Out'){
+            auth.signOut()
+            navigate('/login')
+        }
+    }
+
 
   return (
     <>
@@ -36,8 +57,7 @@ export const SideBar = () => {
             <div className="sidebar__items">
                 {
                     sideBarItems.map(item => (
-                        <div onClick={() => setSelectedItem(item)}
-                        className='sidebar__item'>
+                        <div className='sidebar__item'>
                             <div>
                                 <img src={item.url}/>
                                 <span>{item.title}</span>
@@ -53,12 +73,32 @@ export const SideBar = () => {
                         <h4>Threads</h4>
                     </div>
                 </div>
-                <div className="sidebar__more">
+                <div onClick={() => setShowSettings(!showSettings)}className="sidebar__more" >
                     <div>
                         <div className="burger"></div>
-                        <span>More</span>
+                        <span 
+                        style={{
+                            fontWeight: showSettings ? '700' : '400',
+                        }}
+                        >More</span>
                     </div>
+
                 </div>
+
+               {
+                showSettings ? 
+                <div className="sidebar__modal">
+                    {
+                       settingsItems.map(item => (
+                        <div onClick={(e) => leaveSystem(e.target.innerText)} className="settings__item">
+                            <div>
+                                <span>{item.title}</span>
+                            </div>
+                        </div>
+                       ))
+                    }
+                </div> : false
+               } 
             </div>
         </div>
     </div>

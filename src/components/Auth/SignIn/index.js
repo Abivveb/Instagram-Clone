@@ -3,8 +3,21 @@ import './SignIn.scss'
 import instaText from '../../../images/insta-text.png'
 import facebookIcon from '../../../images/facebook.icon.png'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { enterUser } from '../../../store/slices/userSlice'
 
 export const SignIn = () => {
+    const dispatch = useDispatch()
+    const [email, setEmail] = React.useState('')
+    const [pass, setPass] = React.useState('')
+    
+
+    const enterToSystem = () => {
+        const user = {email, pass}
+        dispatch(enterUser(user))
+    }
+
+
   return (
     <>
         <div className="signIn">
@@ -12,10 +25,10 @@ export const SignIn = () => {
 
             <div className="signIn__elements">
                 <div className="signIn__inputs">
-                    <input type="text" placeholder='Телефон, имя пользователя или эл. адрес'/>
-                    <input type="password" placeholder='Пароль'/>
+                    <input onChange={(e) => setEmail(e.target.value)}type="text" placeholder='Телефон, имя пользователя или эл. адрес'/>
+                    <input onChange={(e) => setPass(e.target.value)}type="password" placeholder='Пароль'/>
                 </div>
-                <button>Войти</button>
+                <button onClick={enterToSystem}>Войти</button>
             </div>
 
             <div className='signIn__divider'>
