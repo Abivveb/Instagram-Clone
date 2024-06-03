@@ -1,7 +1,16 @@
 .recommend {
-    width: 300px;
-    height: 600px;
-    border: 1px solid rgb(255, 0, 0);
-    position: absolute;
-    right: 0;
+    &__title {
+        margin: 20px 0 0;
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+
+        &-left {
+            color: grey;
+        }
+
+        &-right {
+            margin: 0 40px 0 0;
+        }
+    }
 }

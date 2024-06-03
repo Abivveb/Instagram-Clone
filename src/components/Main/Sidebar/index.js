@@ -12,6 +12,7 @@ import defaultAva from '../../../images/user.png'
 import './Sidebar.scss'
 import { auth } from '../../../config'
 import { useNavigate } from 'react-router-dom'
+import { CreatePostModal } from './createPostModal'
 
 const sideBarItems = [
     {id: 1, title: 'Главная', url: homeIcon},
@@ -39,6 +40,7 @@ const settingsItems = [
 export const SideBar = () => {
 
     const [showSettings, setShowSettings] = React.useState(false)
+    const [showPostModal, setShowPostModal] = React.useState(false)
     const navigate = useNavigate()
     
     const leaveSystem = (e) => {
@@ -48,16 +50,24 @@ export const SideBar = () => {
         }
     }
 
+    const createPostModal = (e) => {
+        console.log(e)
+        if(e === 'Создать'){
+            setShowPostModal(true)
+        }
+    }
+
 
   return (
     <>
+    {showPostModal == true ? <CreatePostModal/> : false}
     <div className="wrapper">
         <div className="sidebar">
             <img src={instaText} className='sidebar__logo'/>
             <div className="sidebar__items">
                 {
                     sideBarItems.map(item => (
-                        <div className='sidebar__item'>
+                        <div className='sidebar__item' onClick={(e) => createPostModal(e.target.innerText)}>
                             <div>
                                 <img src={item.url}/>
                                 <span>{item.title}</span>

@@ -32,6 +32,7 @@
         display: flex;
         align-items: center;
         border-radius: 8px;
+        cursor: pointer;
 
         &:hover {
             background: rgb(220, 220, 220);
@@ -77,6 +78,8 @@
         align-items: center;
         padding: 0 10px;
         border-radius: 8px;
+        cursor: pointer;
+
 
         
         &:hover {
@@ -116,6 +119,9 @@
             padding: 5px;
             display: flex;
             align-items: center;
+            cursor: pointer;
+
+            
 
             div {
                 display: inline-block;
@@ -135,6 +141,7 @@
         align-items: center;
         padding: 0 10px;
         border-radius: 8px;
+        cursor: pointer;
 
 
         &:hover {

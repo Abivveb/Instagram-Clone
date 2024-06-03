@@ -10,14 +10,22 @@ export const SignUp = () => {
   const [email, setEmail] = React.useState('')
   const [pass, setPass] = React.useState('')
   const [username, setUsername] = React.useState('')
+  const [fullName, setFullName] = React.useState('')
 
   const registerUser = () => {
+    if(!username) return alert('You didnt write email')
+    if(!pass) return alert('You didnt write pass')
+    if(!username) return alert('You didnt write username')
+    if(!fullName) return alert('You didnt write fullname')
+
     const user = {
       email,
       pass,
-      username
+      username, 
+      fullName
     }
     dispatch(createUser(user))
+    console.log(user)
   }
 
 
@@ -33,7 +41,7 @@ export const SignUp = () => {
 
         <div className="signUp__inputs">
             <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}placeholder='Эл. адрес'/>
-            <input type="text" placeholder='Имя и фамилия'/>
+            <input type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder='Имя и фамилия'/>
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Имя пользователя'/>
             <input type="password" value={pass} onChange={(e) => setPass(e.target.value)} placeholder='Пароль'/>
         </div>

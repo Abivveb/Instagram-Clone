@@ -5,6 +5,7 @@ import { Content } from './Content'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Recommend } from './Recommendations'
+import { PopUpUser } from './PopUpUser'
 
 export const Main = () => {
 
@@ -26,7 +27,10 @@ export const Main = () => {
         <div className="main">
             <SideBar/>
             <Content/>
-            <Recommend/>
+            <div className="navbar">
+              <PopUpUser/>
+              <Recommend/>
+            </div>
         </div>  
 
     </>

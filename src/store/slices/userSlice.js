@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { auth } from "../../config";
+import { auth, db } from "../../config";
 
 const initialState = {
     user: null,
@@ -11,14 +11,30 @@ export const createUser = createAsyncThunk(
     'createUser',
     async(user) => {
         try {
-            const {email, pass, username} = user
+            const {email, pass, username, fullName} = user
             await auth.createUserWithEmailAndPassword(email, pass)
-                    if(auth.currentUser !== null){
-                        auth.currentUser.updateProfile({
-                            displayName: username
+            
+                if(auth.currentUser == null) return
+                    await auth.currentUser.updateProfile({
+                        displayName: username
+                    })
+                    
+    
+                        const {displayName, photoURL, uid} = auth.currentUser
+            
+                        await db.collection('users').doc(auth.currentUser.uid).set({
+                            displayName,
+                            email,
+                            uid,
+                            fullName,
+                            photoURL
                         })
-                    }
-                return auth.currentUser
+                    
+
+                
+           
+            console.log(auth.currentUser)
+            return auth.currentUser
         } catch (error) {
             console.log('error')
         }
@@ -40,6 +56,8 @@ export const enterUser = createAsyncThunk(
         }
     }
 )
+
+
 
 const userSlice = createSlice({
     name: 'user',
