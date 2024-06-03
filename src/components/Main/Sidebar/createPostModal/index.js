@@ -61,7 +61,13 @@ export const CreatePostModal = () => {
   return (
     <div className="create-post-modal">
         <div className="create-post-modal__content">
-            <div className="create-post-modal__name">Create post</div>
+            <div className="create-post-modal__header">
+                <div className="create-post-modal__back">
+                    <svg aria-label="Назад" class="x1lliihq x1n2onr6 x5n08af" fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Назад</title><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="2.909" x2="22.001" y1="12.004" y2="12.004"></line><polyline fill="none" points="9.276 4.726 2.001 12.004 9.276 19.274" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline></svg>
+                </div>
+                <div className="create-post-modal__name">Create post</div>
+                <div className="create-post-modal__next">Далее</div>
+            </div>
             {
                 selectedImg.length === 0 ? 
                 <>
@@ -88,6 +94,16 @@ export const CreatePostModal = () => {
                         }}
                         onClick={slideRight} className="create-post-modal__btn-right">
                             <svg aria-label="Стрелка вправо" class="x1lliihq x1n2onr6 x9bdzbf" fill="currentColor" height="16" role="img" viewBox="0 0 24 24" width="16"><title>Стрелка вправо</title><polyline fill="none" points="8 3 17.004 12 8 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline></svg>
+                        </div>
+
+                        <div className="create-post-modal__btn-size">
+                            <svg aria-label="Выбрать размер и обрезать" class="x1lliihq x1n2onr6 x9bdzbf" fill="currentColor" height="16" role="img" viewBox="0 0 24 24" width="16"><title>Выбрать размер и обрезать</title><path d="M10 20H4v-6a1 1 0 0 0-2 0v7a1 1 0 0 0 1 1h7a1 1 0 0 0 0-2ZM20.999 2H14a1 1 0 0 0 0 2h5.999v6a1 1 0 0 0 2 0V3a1 1 0 0 0-1-1Z"></path></svg>
+                        </div>
+                        <div className="create-post-modal__btn-zoom">
+                            <svg aria-label="Выбрать тип увеличения" class="x1lliihq x1n2onr6 x9bdzbf" fill="currentColor" height="16" role="img" viewBox="0 0 24 24" width="16"><title>Выбрать тип увеличения</title><path d="m22.707 21.293-4.825-4.825a9.519 9.519 0 1 0-1.414 1.414l4.825 4.825a1 1 0 0 0 1.414-1.414ZM10.5 18.001a7.5 7.5 0 1 1 7.5-7.5 7.509 7.509 0 0 1-7.5 7.5Zm3.5-8.5h-2.5v-2.5a1 1 0 1 0-2 0v2.5H7a1 1 0 1 0 0 2h2.5v2.5a1 1 0 0 0 2 0v-2.5H14a1 1 0 0 0 0-2Z"></path></svg>
+                        </div>
+                        <div className="create-post-modal__btn-media-gallery">
+                            <svg aria-label="Открыть медиагалерею" class="x1lliihq x1n2onr6 x9bdzbf" fill="currentColor" height="16" role="img" viewBox="0 0 24 24" width="16"><title>Открыть медиагалерею</title><path d="M19 15V5a4.004 4.004 0 0 0-4-4H5a4.004 4.004 0 0 0-4 4v10a4.004 4.004 0 0 0 4 4h10a4.004 4.004 0 0 0 4-4ZM3 15V5a2.002 2.002 0 0 1 2-2h10a2.002 2.002 0 0 1 2 2v10a2.002 2.002 0 0 1-2 2H5a2.002 2.002 0 0 1-2-2Zm18.862-8.773A.501.501 0 0 0 21 6.57v8.431a6 6 0 0 1-6 6H6.58a.504.504 0 0 0-.35.863A3.944 3.944 0 0 0 9 23h6a8 8 0 0 0 8-8V9a3.95 3.95 0 0 0-1.138-2.773Z" fill-rule="evenodd"></path></svg>
                         </div>
                     </div>
                     

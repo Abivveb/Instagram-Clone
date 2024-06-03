@@ -35,8 +35,6 @@ const settingsItems = [
     {id: 7, title: 'Sign Out'},
 ]
 
-
-
 export const SideBar = () => {
 
     const [showSettings, setShowSettings] = React.useState(false)
