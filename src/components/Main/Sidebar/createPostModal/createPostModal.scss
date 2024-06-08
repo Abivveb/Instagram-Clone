@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
 
     &__content {
         width: 450px;
@@ -100,8 +101,32 @@
     } 
     &__cut {
         position: relative;
-
     }
+    &__ratioModal {
+        height: 200px;
+        width: 140px;
+        border: 1px solid black;
+        background: rgba(0, 0, 0, 0.566);
+        position: absolute;
+        bottom: 60px;
+        left: 20px;
+        z-index: 20;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &-ratio {
+                height: 50px;
+                border-bottom: 1px solid white;
+                color: white;
+                display: flex;
+                align-items: center;
+                padding: 0 0 0 20px;
+                &:last-child {
+                    border: none;
+                }
+        }
+        }
+
     &__btn {
 
         &-left, &-right, &-size, &-zoom, &-media-gallery {
